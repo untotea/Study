@@ -61,9 +61,11 @@ class Perceptron(object):
     
     def net_input(self, X):
         '''Вычисляет общий вход'''
-        return np.dot(X, self.w_[1:] + self.w_[0])
+        return np.dot(X, self.w_[1:] + self.w_[0]) #вычисляет скалаярное произведение векторов.
     
     def predict(self, X):
         '''Возвращает метку класса после единичного шага'''
-        return np.where(self.net_input(X) >= 0.0, 1, -1)
+        return np.where(self.net_input(X) >= 0.0, 1, -1) #если условие верное возвращает 1, если неверное возвращает -1.
+    
+    
     
