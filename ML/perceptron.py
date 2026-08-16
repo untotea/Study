@@ -21,7 +21,7 @@ class Perceptron(object):
     
     '''
     
-    def __init__(self, eta=0.1, n_iter=50, random_state=1):
+    def __init__(self, eta=0.01, n_iter=50, random_state=1):
         self.eta = eta
         self.n_iter = n_iter
         self.random_state = random_state
@@ -50,18 +50,18 @@ class Perceptron(object):
         
         self.errors_ = [] #Сюда будут попадать обновления весов при неправильной классификации. 
         for _ in range(self.n_iter): #Проходимся по обучающему набору данных.
-            errors = 0 #Значение будет меняться при обновление веса, прибавляться.
+            errors = 0 #Значение будет меняться при обновление веса, прибавляться по единичке.
             for xi, target in zip(X, y): #Здесь происходит обновление весов по правилу обучения персептрона.
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
                 self.w_[0] += update
-                errors += update
+                errors += int(update != 0.0) #Если было обновление веса, то в errors добавляется 1.
             self.errors_.append(errors)
         return self
     
     def net_input(self, X):
         '''Вычисляет общий вход'''
-        return np.dot(X, self.w_[1:] + self.w_[0]) #вычисляет скалаярное произведение векторов.
+        return np.dot(X, self.w_[1:]) + self.w_[0] #вычисляет скалаярное произведение векторов и прибаляет к нему вес.
     
     def predict(self, X):
         '''Возвращает метку класса после единичного шага'''
