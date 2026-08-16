@@ -23,3 +23,5 @@ plt.xlabel('длина чашелистика [см]')
 plt.ylabel('длина лепестка [см]')
 plt.legend(loc='upper left') #добавляет лейблы в нужные нам место
 plt.show()
+
+
