@@ -1,9 +1,9 @@
 from matplotlib.colors import ListedColormap #класс из библиотеки для создания ползовательских палитр
 import numpy as np
-from perceptron import Perceptron
+from ML.iris_perceptron.perceptron import Perceptron
 import matplotlib.pyplot as plt #запомни, что для методов x/ylabel, scatter и других в конце нужен pyplot
-from Error_classification_graphic import ppn
-from iris import *
+from ML.iris_perceptron.Error_classification_graphic import ppn
+from ML.iris_perceptron.iris import *
 
 def plot_decision_regions(X, y, classifier, resolution = 0.02): #Функция принимает значения X, y из iris. classifier - модель классификации.
     #Настроит генератор маркеров и карту цветов
