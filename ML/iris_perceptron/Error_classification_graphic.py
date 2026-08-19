@@ -1,5 +1,5 @@
-from perceptron import Perceptron
-from iris import *
+from ML.iris_perceptron.perceptron import Perceptron
+from ML.iris_perceptron.iris import *
 
 ppn = Perceptron(eta=0.1, n_iter=10)
 ppn.fit(X, y)
